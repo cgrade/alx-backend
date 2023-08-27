@@ -3,41 +3,39 @@
     the base Caching class
 """
 
-
-class BaseCaching():
-    """ BaseCahing defines:
-      - constants of your caching system
-      - where your data are stored (in a dictionary)
-    """
-    MAX_ITEMS = 4
-
-    def __init__(self) -> None:
-        """ Initialize
-        """
-        self.cache_data = {}
-
-    def print_cache(self) -> None:
-        """ Print the cache
-        """
-        print("Current cache:")
-        for key in sorted(self.cache_data.keys()):
-            print("{}: {}".format(key, self.cache_data.get(key)))
-
-    def put(self, key, item):
-        """ Add an item in the cache
-        """
-        raise NotImplementedError(
-            "put must be implemented in your cache class")
-
-    def get(self, key):
-        """ Get an item by key
-        """
-        raise NotImplementedError(
-            "get must be implemented in your cache class")
+BaseCaching = __import__('base_caching').BaseCaching
 
 
 class BasicCache(BaseCaching):
-    """ A class that inhereit from the BaseCaching Class
+    """_summary_
+    """
+    def __init__(self):
+        """_summary_
+        """
+        super().__init__()
+
+    def put(self, key, item):
+        """_summary_
+
+        Args:
+                key (_type_): _description_
+                item (_type_): _description_
+        """
+        if key is None or item is None:
+            pass
+        else:
+            self.cache_data[key] = item
+
+    def get(self, key):
+        """return the value in self.cache_data linked to key
+
+        Args:
+                key (_type_): _description_
+        """
+        if key is None or key not in self.cache_data.keys():
+            return None
+        return self.cache_data.get(key)
+    """ A class that inherit from the BaseCaching Class
         with it's own implementations.
     """
     MAX_ITEMS = None
