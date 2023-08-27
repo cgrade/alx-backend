@@ -42,6 +42,9 @@ class BasicCache(BaseCaching):
     """
     MAX_ITEMS = None
 
+    def __init__(self) -> None:
+        super().__init__()
+
     def put(self, key, item):
         """ A methoed that add data into the cache
         """
