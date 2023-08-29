@@ -23,6 +23,10 @@ class Config:
     LANGUAGES = ["en", "fr"]
 
 
+app.config['BABEL_DEFAULT_LOCALE'] = 'en'
+app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+
+
 @babel.localeselector
 def get_locale():
     """ A local selector to select the default language for user
