@@ -12,19 +12,17 @@ from flask import (
 )
 
 
-# Initialize a flask app
-app = Flask(__name__)
-babel = Babel(app)
-
-
 class Config:
     """ A class that configures available languages in our app
     """
     LANGUAGES = ["en", "fr"]
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
-app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+# Initialize a flask app
+app = Flask(__name__)
+babel = Babel(app)
 
 
 @babel.localeselector
@@ -35,7 +33,11 @@ def get_locale():
 
 
 @app.route("/")
-def home() -> typing.Any:
+def index() -> typing.Any:
     """ A simple route in the Flask App
     """
     return render_template('0-index.html')
+
+
+if __name__ == '__main__':
+    app.run(port="5000", host="0.0.0.0", debug=True)
