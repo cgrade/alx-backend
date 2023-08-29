@@ -36,7 +36,7 @@ def get_locale():
 def index() -> typing.Any:
     """ A simple route in the Flask App
     """
-    return render_template('0-index.html')
+    return render_template('1-index.html')
 
 
 if __name__ == '__main__':
