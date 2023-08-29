@@ -1,0 +1,1 @@
+# Readme file for i18n and l10n in Flask
