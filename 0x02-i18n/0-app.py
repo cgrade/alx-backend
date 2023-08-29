@@ -3,6 +3,7 @@
 """
 
 
+import typing
 from flask import (
     Flask,
     render_template
@@ -14,5 +15,7 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def home():
+def home() -> typing.Any:
+    """ A simple route in the Flask App
+    """
     return render_template('0-index.html')
