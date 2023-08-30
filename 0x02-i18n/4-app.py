@@ -19,7 +19,7 @@ class Config:
     """ A class that configures available languages in our app
     """
     LANGUAGES = ["en", "fr"]
-    BABEL_DEFAULT_LOCALE = 'en'
+    # BABEL_DEFAULT_LOCALE = 'en'
     BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
@@ -35,7 +35,6 @@ def get_locale():
     """
     local_param = request.args.get('locale')
     if local_param in app.config['LANGUAGES']:
-        print(local_param)
         return local_param
     return request.accept_languages.best_match(app.config['LANGUAGES'])
 
@@ -46,7 +45,7 @@ def index() -> typing.Any:
     """
     home_title = gettext('Welcome to Holberton')
     home_header = gettext('Hello world!')
-    return render_template('3-index.html',
+    return render_template('4-index.html',
                            home_title=home_title, home_header=home_header)
 
 
