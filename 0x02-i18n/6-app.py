@@ -77,7 +77,7 @@ def index() -> typing.Any:
     not_logged_in = gettext("You are not logged in.")
     userna = g.user
 
-    return render_template('5-index.html',
+    return render_template('6-index.html',
                            home_title=home_title,
                            home_header=home_header,
                            logged_in_as=logged_in_as,
