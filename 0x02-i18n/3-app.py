@@ -30,7 +30,7 @@ babel = Babel(app)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """ A local selector to select the default language for user
     """
     return request.accept_languages.best_match(app.config['LANGUAGES'])
