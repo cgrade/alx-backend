@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
-""" A Basic Flask app that renders 0-index.html template
+""" A Basic Flask app that that translate contents
+    based on user's locale using `babel_flask.Babel`
+    
 """
 
 
