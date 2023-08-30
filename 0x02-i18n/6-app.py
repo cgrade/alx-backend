@@ -61,7 +61,7 @@ def before_request():
 def get_locale() -> str:
     """ A local selector to select the default language for user
     """
-    local_param = request.args.get('locale')
+    local_param = g.user.get('locale')
     if local_param in app.config['LANGUAGES']:
         return local_param
     return request.accept_languages.best_match(app.config['LANGUAGES'])
